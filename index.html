@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medibank Verification Demo</title>
+  <style>
+    :root {
+      --brand: #0057b8;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --danger: #b91c1c;
+      --border: #dbe3ef;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .topbar {
+      background: var(--brand);
+      color: white;
+      padding: 14px 22px;
+      font-weight: 700;
+    }
+
+    .wrap {
+      min-height: calc(100vh - 52px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+
+    .banner {
+      background: #fff4e5;
+      color: #92400e;
+      padding: 12px 16px;
+      font-size: 14px;
+      border-bottom: 1px solid #f2d3a2;
+      line-height: 1.45;
+    }
+
+    .content {
+      padding: 28px 24px 24px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+
+    p.sub {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #cfd8e3;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(0,87,184,.12);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 12px 14px;
+      border: none;
+      border-radius: 10px;
+      background: var(--brand);
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .result {
+      display: none;
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #fecaca;
+      background: #fef2f2;
+      color: var(--danger);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">Medibank Verification Portal</div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="banner">
+        <strong>Educational simulation only.</strong>
+        This page does not store, send, or process credentials.
+      </div>
+
+      <div class="content">
+        <h1>Sign in</h1>
+        <p class="sub">
+          Verify your details to continue. This is a safe classroom demonstration.
+        </p>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="student@example.com" />
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter password" />
+
+        <button onclick="simulate()">Verify account</button>
+
+        <div id="result" class="result"></div>
+
+        <div class="footer">
+          Classroom demo only
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function simulate() {
+      const email = document.getElementById("email").value || "[blank]";
+      const result = document.getElementById("result");
+
+      result.style.display = "block";
+      result.innerHTML =
+        "<strong>Simulation complete.</strong><br><br>" +
+        "In a real credential-harvesting attack, the entered details would be captured here." +
+        "<br><br>No data has been stored or transmitted in this demo." +
+        "<br><br><strong>Entered email:</strong> " + email;
+    }
+  </script>
+</body>
+</html>
